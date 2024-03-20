@@ -3,7 +3,7 @@ module DeviseHackFakeSession
 
   class FakeSession < Hash
     def enabled?
-    false
+      false
     end
 
     def destroy
@@ -15,10 +15,10 @@ module DeviseHackFakeSession
 
     private
 
-    def set_fake_session
+      def set_fake_session
         if Rails.configuration.respond_to?(:api_only) && Rails.configuration.api_only
-        request.env["rack.session"] ||= ::DeviseHackFakeSession::FakeSession.new
+          request.env["rack.session"] ||= ::DeviseHackFakeSession::FakeSession.new
         end
-    end
+      end
   end
 end
